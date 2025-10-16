@@ -1,4 +1,5 @@
-import React from 'react'
+import styles from "./HomeCard.module.css"
+import { Link } from "react-router-dom"
 
 const HomeCard = () => {
   return (

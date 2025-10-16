@@ -1,0 +1,22 @@
+/* NotFoundPage.module.css */
+
+.wrapper {
+  background-color: #f8f9fa;
+}
+
+.code {
+  font-size: 6rem;
+  color: #0077ff;
+  letter-spacing: 2px;
+}
+
+.homeBtn {
+  background-color: #0077ff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.homeBtn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}

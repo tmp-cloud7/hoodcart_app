@@ -1,13 +1,20 @@
 import { FaCartShopping } from "react-icons/fa6"
+import { TiShoppingCart } from "react-icons/ti";
 import { Link } from "react-router-dom"
 import styles from "./NavBar.module.css"
+import NavBarLink from "./NavBarLink"
 
 const NavBar = () => {
   return (
     <nav className={`navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 ${styles.stickyNavbar}`}>
       <div className="container">
         <Link className="navbar-brand fw-bold text-uppercase" to="/">
-          HOODCART
+          HOODCART <TiShoppingCart
+          style={{
+            transform: "scaleX(-1)",   
+            color: "lightpink",       
+          }}
+  />
         </Link>
 
         <button
@@ -23,7 +30,7 @@ const NavBar = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarContent">
-          <NavLink />
+          <NavBarLink />
           <Link
             to="/cart"
             className={`btn btn-dark ms-3 rounded-pill position-relative ${styles.responsiveCart}`}
