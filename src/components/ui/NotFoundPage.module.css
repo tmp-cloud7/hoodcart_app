@@ -1,7 +1,7 @@
 /* NotFoundPage.module.css */
 
 .wrapper {
-  background-color: #f8f9fa;
+  background-color: white;
 }
 
 .code {
@@ -11,7 +11,7 @@
 }
 
 .homeBtn {
-  background-color: #0077ff;
+  background-color: #6050DC;
   border: none;
   transition: all 0.3s ease;
 }
