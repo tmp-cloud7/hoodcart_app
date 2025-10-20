@@ -37,9 +37,7 @@ const ProductPage = () => {
               <img
                 className='card-img-top mb-5 mb-md-0'
                 src={
-                  product.image
-                    ? `${BASE_URL}${product.image}`
-                    : 'https://dummyimage.com/600x700/dee2e6/6c757d.jpg'
+                     `${BASE_URL}${product.image}`
                 }
                 alt={product.name || 'Product'}
               />
@@ -61,13 +59,7 @@ const ProductPage = () => {
               <p className='lead'>{product.description}</p>
 
               <div className='d-flex'>
-                <input
-                  type='number'
-                  className='form-control text-center me-3'
-                  id='inputQuantity'
-                  defaultValue='1'
-                  style={{ maxWidth: '3rem' }}
-                />
+               
                 <button
                   className='btn btn-outline-dark flex-shrink-0'
                   type='button'
