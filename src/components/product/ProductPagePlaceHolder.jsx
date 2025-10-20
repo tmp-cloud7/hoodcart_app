@@ -7,15 +7,12 @@ const ProductPagePlaceHolder = () => {
         <div className="row gx-4 gx-lg-5 align-items-center">
 
           {/* Image Placeholder */}
-          <div className="col-md-6 mb-4 mb-md-0">
-            <div
-              className="bg-secondary bg-opacity-10 rounded"
-              style={{
-                width: "100%",
-                height: "400px",
-                animation: "pulse 1.5s infinite",
-              }}
-            ></div>
+         <div className='col-md-6'>
+              <img
+                className='card-img-top mb-5 mb-md-0'
+                src='https://dummyimage.com/600x700/dee2e6/6c757d.jpg'
+                alt='Product'
+              />
           </div>
 
           {/* Text Placeholder */}
