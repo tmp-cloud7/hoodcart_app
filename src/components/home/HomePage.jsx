@@ -16,6 +16,8 @@ const HomePage = () => {
     api.get("products")    
     .then(res => {
       console.log(res.data)
+      const shuffled = res.data.sort(() => Math.random() - 0.5)
+      setProducts(shuffled)
       setProducts(res.data)
       setLoading(false)
       setError("")
