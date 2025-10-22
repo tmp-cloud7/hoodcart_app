@@ -4,7 +4,7 @@ import ProductPagePlaceHolder from './ProductPagePlaceholder'
 import { useParams } from 'react-router-dom'
 import api, { BASE_URL } from '../../api'
 
-const ProductPage = () => {
+const ProductPage = ({setNumberCartItems}) => {
   const { slug } = useParams()
   const [product, setProduct] = useState({})
   const [similarProducts, setSimilarProducts] = useState([])
@@ -34,6 +34,7 @@ const ProductPage = () => {
     .then(res => {
       console.log(res.data)
       setInCart(true)
+      setNumberCartItems(curr => curr + 1)
     })
     .catch(err => {
       console.log(err.message)
