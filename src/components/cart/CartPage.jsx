@@ -21,6 +21,14 @@ const CartPage = () => {
             console.log(err.message)
         })
     }, [])
+    if(cartitems.length < 1 ){
+        return (
+            <div className="alert alert-primary my-5" role='alert'>
+                You haven't added any item to cart.
+            </div>
+        )
+    }
+
   return (
     <div className='container my-3 py-3' style={{ height: "80vh", overflow: "scroll" }}>
         <h5 className='mb-4'>Shopping Cart</h5>
@@ -29,7 +37,7 @@ const CartPage = () => {
                 {cartitems.map(item =>  <CartItem key={item.id} item={item}/>)}
                
             </div>
-                <CartSummary cartTotal={cartTotal} tax={tax}/>
+                <CartSummary cartTotal={cartTotal} tax={tax} cartitems={cartitems} setCartTotal={setCartTotal} />
         </div>     
     </div>
   )

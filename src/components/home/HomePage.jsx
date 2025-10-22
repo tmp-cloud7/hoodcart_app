@@ -14,7 +14,7 @@ const HomePage = () => {
 
   useEffect(function(){
     if(localStorage.getItem("cart_code") === null)
-      localStorage.setItem("cart_code", randomValue())
+      localStorage.setItem("cart_code", randomValue)
   },[])
 
   useEffect(function(){
