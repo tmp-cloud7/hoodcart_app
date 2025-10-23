@@ -2,12 +2,34 @@ import React, { useState } from 'react'
 import api, { BASE_URL } from '../../api'
 import { toast } from 'react-toastify'
 
-const CartItem = ({item, setCartTotal, cartitems, setNumberCartItems}) => {
+const CartItem = ({item, setCartTotal, cartitems, setNumberCartItems, setCartItems}) => {
 
 const [quantity, setQuantity] = useState(item.quantity)
 const [loading, setLoading] = useState(false)
 
 const itemData = {quantity:quantity, item_id:item.id}
+const itemID = {item_id:item.id}
+
+function deleteCartitem(){
+  const confirmDelete = window.confirm("Are you sure you want to delete this cart item ?")
+
+  if(deleteCartitem){
+    api.post("delete_cartitem/", itemID)
+    .then(res => {
+      console.log(res.data)
+      toast.success("Cart item deleted successfully!")
+      setCartItems(cartitems.filter(cartitem => cartitem.id != item.id))
+       setCartTotal(cartitems.filter(cartitem => cartitem.id != item.id).reduce((acc, curr) => acc + curr.total, 0))
+
+       setNumberCartItems(cartitems.filter(cartitem => cartitem.id != item.id)
+       .reduce((acc, curr) => acc + curr.quantity, 0))
+    })
+    .catch(err => {
+        console.log(err.message)
+       
+    })
+  }
+}
 
 function updateCartitem(){
     setLoading(true)
@@ -60,7 +82,7 @@ function updateCartitem(){
             style={{ backgroundColor: "#4b3bcb", color: 'white'}} disabled={loading}>
              {loading ? "Updating" : "Update"}
               </button>
-            <button className='btn btn-danger'>Remove</button>
+            <button className='btn btn-danger' onClick={deleteCartitem}>Remove</button>
          </div>
         </div>     
     </div>
