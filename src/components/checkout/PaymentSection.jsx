@@ -8,11 +8,11 @@ const PaymentSection = () => {
             <h5>Payment Options</h5>
         </div>
         <div className='card-body'>
-            {}
+            
             <button className={`btn btn-primary w-100 mb-3 ${styles.paypalButton}`} id='paypal-button'>
                 <i className='bi bi-paypal'></i> Pay with PayPal
             </button>
-            {}
+            
             <button className={`btn btn-primary w-100 mb-3 ${styles.flutterwaveButton}`} id='flutterwave-button'>
                 <i className='bi bi-credit-card'></i> Pay with Flutterwave
             </button>
