@@ -3,6 +3,7 @@ import RelatedProducts from './RelatedProducts'
 import ProductPagePlaceHolder from './ProductPagePlaceholder'
 import { useParams } from 'react-router-dom'
 import api, { BASE_URL } from '../../api'
+import { toast } from 'react-toastify'
 
 const ProductPage = ({setNumberCartItems}) => {
   const { slug } = useParams()
@@ -34,6 +35,7 @@ const ProductPage = ({setNumberCartItems}) => {
     .then(res => {
       console.log(res.data)
       setInCart(true)
+      toast.success("Item added to cart")
       setNumberCartItems(curr => curr + 1)
     })
     .catch(err => {

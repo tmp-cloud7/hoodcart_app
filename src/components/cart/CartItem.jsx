@@ -1,24 +1,32 @@
 import React, { useState } from 'react'
 import api, { BASE_URL } from '../../api'
+import { toast } from 'react-toastify'
 
-const CartItem = ({item, setCartTotal, cartitems}) => {
+const CartItem = ({item, setCartTotal, cartitems, setNumberCartItems}) => {
 
-const [quantity, SetQuantity] = useState(item.quantity)
+const [quantity, setQuantity] = useState(item.quantity)
+const [loading, setLoading] = useState(false)
 
 const itemData = {quantity:quantity, item_id:item.id}
 
 function updateCartitem(){
+    setLoading(true)
     api.patch("update_quantity/", itemData)
     .then(res => {
         console.log(res.data)
+        setLoading(false)
+        toast.success("Cart item updated successfully!")
         setCartTotal(cartitems.map((cartitem) =>
             cartitem.id === item.id ?
             res.data.data:
-            cartitem).reduce((acc, curr) => acc + curr.total, 0)
-        )
+            cartitem).reduce((acc, curr) => acc + curr.total, 0))
+
+        setNumberCartItems(cartitems.map((cartitem) => cartitem.id === item.id ? res.data.data : cartitem)
+        .reduce((acc, curr) => acc + curr.quantity, 0))
     })
     .catch(err => {
         console.log(err.message)
+        setLoading(false)
     })
 }
 
@@ -44,12 +52,14 @@ function updateCartitem(){
               min = "1"
               className='form-control me-3'
               value={quantity}
-              onChange={(e) => SetQuantity(e.target.value)}
+              onChange={(e) => setQuantity(e.target.value)}
               style={{ width: "70px" }}
             />
             <button className='btn btn-sm mx-2' 
             onClick={updateCartitem}
-            style={{ backgroundColor: "#4b3bcb", color: 'white'}}>Update</button>
+            style={{ backgroundColor: "#4b3bcb", color: 'white'}} disabled={loading}>
+             {loading ? "Updating" : "Update"}
+              </button>
             <button className='btn btn-danger'>Remove</button>
          </div>
         </div>     
