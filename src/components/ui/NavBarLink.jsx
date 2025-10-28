@@ -38,10 +38,8 @@ const NavBarLink = () => {
                 Logout
               </NavLink>
           </li>
-        </>
-    
+        </>  
     :
-
         <>
           <li className="nav-item">
             <NavLink 
