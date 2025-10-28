@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import OrderHistoryItemContainer from './OrderHistoryItemContainer'
 import UserInfo from './UserInfo'
 import api from '../../api'
+import Spinner from '../ui/Spinner'
 
 const UserProfilePage = () => {
 
@@ -21,6 +22,10 @@ const UserProfilePage = () => {
       setLoading(false)
     })
   }, [])
+
+  if(loading){
+    return <Spinner loading={loading} />
+  }
 
   return (
     <div className='container my-5'>

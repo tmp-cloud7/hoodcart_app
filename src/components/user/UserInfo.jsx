@@ -33,14 +33,14 @@ const UserInfo = ({userInfo}) => {
                             </p>
                         </div>
                         <div className='col-md-6'>
+                             <p>
+                                <strong>Username: </strong>{`${userInfo.username}`}
+                            </p>
                             <p>
                                 <strong>City: </strong>{userInfo.city}
                             </p>
                             <p>
                                 <strong>State: </strong>{userInfo.state}
-                            </p>
-                            <p>
-                                <strong>Member Since: </strong>{userInfo.username}
                             </p>
                         </div>
                     </div>
