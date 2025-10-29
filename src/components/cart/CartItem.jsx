@@ -87,6 +87,6 @@ function updateCartitem(){
         </div>     
     </div>
   )
-}
+} 
 
 export default CartItem
